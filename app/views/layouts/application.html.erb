@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TasteHome</title>
+  <meta name="description" content="TasteHome provides authentic food delivery to the customers and a unique experience to build connections with the native cooks.">
+  <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+  <meta property="og:image" content="https://www.dropbox.com/s/5dg8smnush3chor/tastehome_og.png?" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="200" />
+  <meta property="og:image:height" content="200" />
+  <meta property="og:title" content="TasteHome" />
+  <meta property="og:description" content="Authentic home-style meals delivered to your door.
+Connect with native cooks and enjoy your meal" />
+  <meta property="og:url" content="www.tastehome.co" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div id="wrapper">
+<%= render 'layouts/header' %>
+    <nav class="navbar navbar-fixed-top transparent">
+      <div class="container">
+        <div id="navbar" class="collapse navbar-collapse">
+		  <!-- <a class="navbar-brand" id="logo" href="/">TasteHome</a> -->
+		  <!-- <div class="nav-right"> Order here! </div> -->
+	  	</div>
+  	  </div>
+	</nav>
+
+<%= yield %>
+</div>
+</body>
+</html>

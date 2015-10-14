@@ -1,0 +1,303 @@
+// Place all the styles related to the charges controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$grey-color: #f7f7f7;
+$black-title: #252525;
+$grey-desc: #686868;
+$grey-line: #e2e2e2;
+$orange-color: #F2724C;
+$orange-hover: #e14010;
+
+html, body {
+	height: 100%;
+	font-family: 'Lato', sans-serif;
+}
+
+.order {
+	color: $grey-desc;
+	font-variant: small-caps;
+	font-size: -webkit-xxx-large;
+	font-weight: bold;
+	margin-top: 1em;
+	text-align: center;
+}
+.order-detail {
+	color: $grey-desc;
+	font-size: large;
+	text-align: center;
+}
+.menu-container {
+	padding: 2em;
+}
+#order-form {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.rest-name {
+	font-family: 'Ubuntu', sans-serif;
+	color: #74a0a1; 
+	font-size: x-large; 
+	font-weight: bold;
+
+}
+.pic-style {
+	display: table;
+	margin: 0 auto;
+	width: 300px;
+	height: auto;
+}
+.sqr {
+	width: 90%;
+	display: table;
+	margin: 0 auto;
+	background-color: white;
+	margin-bottom: 1em;
+}
+
+.food-name {
+	color: black;
+	font-size: large;
+}
+.food-desc {
+	color: $grey-desc;
+}
+
+.food-price {
+	margin-left: 10px;
+}
+
+@media only screen and (min-width: 771px) and (max-width: 900px) {
+#quantity {
+	float: left; 
+	height: 30px; 
+	margin-left: 4%; 
+	margin-top: 1em; 
+	font-size: large; 
+	font-weight: bold;	
+}
+
+
+#menu-friday {
+	margin-left: 30%; 
+	font-weight: bold; 
+	font-size: x-large
+}
+
+#order-page {
+	background-color: #f5f5f5;
+	color: $grey-desc;
+	padding-top: 10px;
+	width: 100%; 
+	height: 170%;
+	border-top: 5px solid $orange-color;
+}
+#thanks {
+	color: $grey-desc;
+	padding-top:10px;
+	width: 100%; 
+	height: 100%;
+	
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
+}
+.pic-container {
+	float: left;
+}
+
+#menu-name {
+	font-weight: bold;
+}
+//#menu-delivery {
+//	color: darkgrey;
+//	margin-left: 27%
+//}
+.sqr-emp {
+	height:0;
+	width: 0;
+}
+
+
+.sqr {
+	background-color: white;
+	min-width: 100%;
+	height: auto;
+}
+body {
+	background-color: #f5f5f5;
+}
+//#menu-submit {
+//	margin-left: 20%;
+//	margin-top: 1em;
+//	margin-bottom: 1em
+//}
+}
+
+@media only screen and (min-device-width: 1188px) {
+	.pic-style {
+		display: table;
+		margin: 0 auto;
+		width: 250px;
+		height: auto;
+	}
+	.no-contains {
+			width: 70%;
+			display: table;
+			margin: 0 auto;
+	}
+//	#menu-submit {
+//		margin-left: 20%;
+//		margin-top: 1em;
+//		margin-bottom: 1em
+//	}
+}
+
+@media only screen and (max-device-width: 1014px) and (min-device-width: 992px) {
+	.pic-style {
+		display: table;
+		margin: 0 auto;
+		width: 200px;
+		height: auto;
+	}
+//	#menu-submit {
+//		margin-left: 20%;
+//		margin-top: 1em;
+//		margin-bottom: 1em
+//	}
+}
+@media only screen and (max-device-width: 991px) and (min-device-width: 771px) {
+	.sqr {
+		width: 70%;
+		display: table;
+		margin: 0 auto;
+		background-color: white;
+	}
+	.pic-style {
+		display: table;
+		margin: 0 auto;
+		width: 400px;
+		height: auto;
+	}
+	.no-contains {
+		width: 0;
+		height: 0;
+	}
+//	#menu-submit {
+//		margin-left: 20%;
+//		margin-top: 1em;
+//		margin-bottom: 1em
+//	}
+}
+@media only screen and (max-device-width: 770px){
+	.btn.btn-chef.checkout {
+		height: 150px;
+		font-size: -webkit-xxx-large;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+	button.btn.btn-chef.checkout {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+	#checkout {
+		text-align: center;
+		font-size: xx-large;
+		font-weight: bold;
+		bottom: 0;
+		margin: 1em;
+	}
+	#menu-friday {
+		margin-left: 30%; 
+		font-weight: bold; 
+		font-size: xx-large
+	}
+	.pic-container {
+		width: 80%;
+	}
+
+	.pic-style {
+		width: 100%;
+		padding: 1em;
+		position: relative;
+	}
+	
+	#menu-name {
+		font-weight: bold;
+		font-size: xx-large;
+		margin-left: 1em
+	}
+	input#foodone, input#foodtwo, input#foodthree {
+		height: 50px;
+		width: 50px;
+		font-size: x-large;
+		text-align: center;
+	}
+	.payment {
+		margin: 1.5em;
+		font-size: x-large;
+	}
+	
+	#thanks {
+		margin: 2em;
+		font-size: x-large;
+	}
+	#menu-delivery {
+		color: darkgrey; 
+		margin-left: 30%;
+		font-size: x-large;
+	}
+	.row {
+		margin:2em;
+	}
+	.food-name {
+		color: black;
+		font-size: xx-large;
+	}
+	.food-desc {
+		color: $grey-desc;
+		font-size: xx-large;
+	}
+
+	.food-price {
+		margin-left: 10px;
+		font-size: xx-large;
+	}
+	.sqr-emp {
+		width: 95%;
+	}
+	.sqr {
+		background-color: white;
+		height: 800px;
+		margin: 1em;
+	}
+	input#foodone {
+		font-size: xx-large;
+		height: 50px;
+	}
+	#quantity {
+		float: left; 
+		height: 40px; 
+		margin-left: 4%; 
+		margin-top: 1em; 
+		font-size: xx-large; 
+		font-weight: bold;	
+	}
+
+	input.form-control {
+		height: 35px;
+	}
+	.form-name {
+		font-size: xx-large;
+	}
+//	#menu-submit {
+//		margin-left: 0;
+//		margin-top: 1em;
+//		margin-bottom: 1em
+//	}
+}

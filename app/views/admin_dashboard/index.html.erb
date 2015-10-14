@@ -1,0 +1,13 @@
+<div style="padding-top: 300px">
+THIS IS ADMIN DASHBOARD!!
+<% @users.each do |user| %>
+    <li>
+	  <% @user = user %>
+      <%= user.email %>
+	  <!-- <%= link_to "Change to cook", change_cook_path(:type => "Cook"), method: :post %> -->
+	  <%= link_to "Change", change_cook_path(cook_user: @user), method: :post %>
+    </li>
+<% end %>
+</div>
+<%= link_to "sign out", destroy_user_session_path, method: :delete %>
+<% console %>

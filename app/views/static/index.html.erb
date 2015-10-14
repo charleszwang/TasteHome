@@ -1,0 +1,38 @@
+<div id="landing_page">
+<div id="main">
+<center>
+
+	<!-- SEO Stuff. Adding here so it's divided from the important stuff. -->
+	<title> TasteHome </title>
+
+	<meta name="description" content="TasteHome provides authentic food delivery to the customers and a unique experience to build connections with the native cooks."
+
+	<meta name="google" content="notranslate" />
+
+	<meta name="keywords" content="TasteHome,authentic,home,meal,berkeley,delivery,san,francisco,delivery,korean,chinese,asian"
+
+	<!-- Meta tags end -->
+
+	<%= image_tag("beta.png", :alt => "beta", :class => "beta")%>
+	<p id="landing1">
+		TasteHome
+	</p>
+	<p id="landing2">
+		Authentic home-style meals delivered to your door <br>
+		Connect with native cooks and enjoy your meal<br>
+		Order is CLOSED. Please come back again:)
+	</p>
+	<span id="only_berkeley"> Only in <span style="color: #9FD5D0"> Berkeley </span> now! </span>
+	<div class="row">
+		<div style="margin: 1em">
+			<%= button_to "Pre-order CLOSED!", charges_path, :class => "btn btn-chef", :id => "spacing-right", :method => :get %>
+		</div>
+		<div class="underline-lg"></div>
+	</div>
+	<p id="cook"> Interested in becoming a cook? <a href="https://goo.gl/CO37m9" style="color: #9FD5D0"> Apply now! </a> </p>
+	<%= link_to image_tag('facebook.png', :alt => "facebook", :style => "margin: 0.25em; width: 7%"), "https://www.facebook.com/pages/TasteHome/830473117007533" %>
+	<%= link_to image_tag('twitter.png', :alt => "twitter", :style => "margin: 0.25em; width: 7%"), "https://twitter.com/hellotastehome" %>
+	<%= link_to image_tag('instagram.png', :alt => "email", :style => "margin: 0.25em; width: 7%"), "https://instagram.com/hellotastehome" %>
+</center>	
+</div>
+</div>

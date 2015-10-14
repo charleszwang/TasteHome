@@ -1,0 +1,12 @@
+<div style="padding-top: 300px">
+Current Address:
+<%= @address %>
+
+<%= form_for @user, url: user_address_update_path, :html => {:multipart => true, :method => :post} do |f| %>
+  <%= f.label :address %>:
+  <%= f.text_field :address %><br />
+
+  <%= f.submit %>
+<% end %>
+</div>
+<%console%>

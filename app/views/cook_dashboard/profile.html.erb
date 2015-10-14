@@ -1,0 +1,8 @@
+<div style="margin-top: 300px">
+<h1><%= @cook.email %>'s Profile</h1>
+
+<% if current_user == @cook %>
+	<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% end %>
+</div>
+<% console %>

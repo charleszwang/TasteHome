@@ -1,0 +1,49 @@
+$grey-color: #f7f7f7;
+$black-title: #252525;
+$grey-desc: #686868;
+$grey-line: #e2e2e2;
+$orange-color: #F2724C;
+$orange-hover: #e14010;
+
+html, body {
+	height: 100%;
+	font-family: 'Lato', sans-serif;
+}
+.content-title {
+	font-size: x-large;
+	display: table;
+	margin: 0 auto;
+	font-weight: bold;
+}
+.sm-profile {
+	width: 70px;
+	float: left;
+}
+.sm-profile-name {
+	float:left;
+	margin: 0.5em;
+}
+#foodone {
+	float:left;
+}
+.sm-icon {
+	width: 30px;
+	display:inline-block;
+}
+#quantity-one, #quantity-two, #quantity-three {
+	font-size: large;
+	font-weight: bold;
+	display:inline-block;
+	text-align: center;
+	margin-top: 0px;
+	float: none;
+ 	display: inline-block;
+}
+.center-outer {
+	width: 100%; 
+	text-align: center;
+}
+#menu-submit {
+	display: table;
+	margin: 0 auto;
+}

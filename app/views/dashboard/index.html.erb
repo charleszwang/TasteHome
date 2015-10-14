@@ -1,0 +1,16 @@
+<div style="margin-top: 300px">
+<% if user_signed_in? %>
+	<%= current_user.type %>
+	<% @cooks.each do |cook| %>
+	    <li>
+		 <%= cook.email %>
+	    </li>
+	<% end %>
+<% else %>
+	NOT FOUND!!!
+<% end %>
+
+<%= link_to "Update my address", user_address_path %>
+<%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+</div>
+<% console %>

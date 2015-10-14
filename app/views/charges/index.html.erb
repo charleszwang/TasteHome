@@ -1,0 +1,294 @@
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	var vHeight = $(window).height(),
+	vWidth = $(window).width(),
+	cover = $('#main');
+	
+	cover.css({"height":vHeight,"width":vWidth});
+	
+	$('.sm-profile a').click(function() {
+		$.scrollTo($(this).attr('href'), {duration: 500});
+	});
+	
+	$('#menu-submit').click(function(){
+	    if(calculateNum() == 0){
+	         $('#menu-submit').attr("disabled","disabled");   
+	    } else {
+	        $('#menu-submit').removeAttr('disabled');
+	    }
+	});
+	
+});
+
+function calculateNum() {
+	var one = document.getElementById("foodone").value;
+	var two = document.getElementById("foodtwo").value;
+	var three = document.getElementById("foodthree").value;
+	return one*1+two*1+three*1;
+}
+function resetParams() {
+	document.getElementById("foodone").value = 0;
+	document.getElementById("foodtwo").value = 0;
+	document.getElementById("foodthree").value = 0;
+}
+function plus(num) {
+	$('#menu-submit').removeAttr('disabled');
+	if (num == 1) {
+		var curr = document.getElementById("quantity-one").innerHTML;
+		document.getElementById("quantity-one").innerHTML = parseFloat(curr) + 1;
+		var elem = document.getElementById("foodone");
+		elem.value = parseFloat(document.getElementById("quantity-one").innerHTML);
+	} else if (num == 2) {
+		var curr = document.getElementById("quantity-two").innerHTML;
+		document.getElementById("quantity-two").innerHTML = parseFloat(curr) + 1;
+		var elem = document.getElementById("foodtwo");
+		elem.value = parseFloat(document.getElementById("quantity-two").innerHTML);
+	} else {
+		var curr = document.getElementById("quantity-three").innerHTML;
+		document.getElementById("quantity-three").innerHTML = parseFloat(curr) + 1;
+		var elem = document.getElementById("foodthree");
+		elem.value = parseFloat(document.getElementById("quantity-three").innerHTML);
+	}
+}
+
+function minus(num) {
+	if (num == 1) {
+		var curr = document.getElementById("quantity-one").innerHTML;
+		if (curr > 0 ) {
+			document.getElementById("quantity-one").innerHTML = parseFloat(curr) - 1;
+		}
+		var elem = document.getElementById("foodone");
+		elem.value = parseFloat(document.getElementById("quantity-one").innerHTML);
+	} else if (num == 2) {
+		var curr = document.getElementById("quantity-two").innerHTML;
+		if (curr > 0 ) {
+			document.getElementById("quantity-two").innerHTML = parseFloat(curr) - 1;
+		}
+		var elem = document.getElementById("foodtwo");
+		elem.value = parseFloat(document.getElementById("quantity-two").innerHTML);
+	} else {
+		var curr = document.getElementById("quantity-three").innerHTML;
+		if (curr > 0 ) {
+			document.getElementById("quantity-three").innerHTML = parseFloat(curr) - 1;
+		}
+		var elem = document.getElementById("foodthree");
+		elem.value = parseFloat(document.getElementById("quantity-three").innerHTML);
+	}
+	if (calculateNum() == 0) {
+		$('#menu-submit').attr("disabled","disabled"); 
+	}
+}
+
+</script>
+<div class="order">Menu</div>
+<div class="order-detail">Jun 19 Fri (Berkeley Only) -- pre-order closes at 2PM <br/> Delivery hours: 6:30PM-8:30PM<br/><br/></div> 
+
+
+<div class="content-title">Featured meal</div>
+<div class="row">
+	<div class="col-md-12 menu-container">
+		<form method='post' action='/charges/save'>
+		<div class="col-md-4 col-sm-6 col-xs-12 contains">
+	  	  <div class="sqr">
+		  	<div style="margin:1em">
+		  	  <%= image_tag('chicken_mayo.jpg', :class => 'pic-style')%><br/>
+			  <span class="food-name">Chicken Mayo</span><span class="food-price">$7</span><br />
+			  <span class="sm-profile-name">
+			  	<%= link_to image_tag('sally_1.png', :class => 'sm-profile'), "#sally_rest"%><br/>
+				  <span style="margin-left:10px">Sally S.</span><br/>
+			  </span><br/>
+		  	  <span class="food-desc">
+				  Rice bowl with fried chicken thigh, scrambled eggs, teriyaki sauce and mayonnaise.<br/>
+				  Comes with shredded dry seaweed and green onions as topping.<br/>
+				  <span style="font-style: italic"> Mayonnaise maybe be removed upon request.</span>
+			  </span><br/><br/>
+			  <input type="hidden" name="foodone" id="foodone" value=0 />
+			 <div class="center-outer">
+			   <%= image_tag('minus.png', :class=>'sm-icon', :style=>"float: left", :onClick=>"minus(1)")%>
+			   <div id="quantity-one">0</div>
+			   <%= image_tag('plus.png', :class=>'sm-icon', :style=>"float: right", :onClick=>"plus(1)")%>
+		     </div>
+		   </div>
+	      </div>
+        </div>
+		<div class="col-md-4 col-sm-6 col-xs-12 contains">
+	  	  <div class="sqr">
+		  	<div style="margin:1em">
+		  	  <%= image_tag('tuna_mayo.jpg', :class => 'pic-style')%><br/>
+			  <span class="food-name">Tuna Mayo</span><span class="food-price">$7</span><br />
+			  <span class="sm-profile-name">
+			  	<%= link_to image_tag('sally_1.png', :class => 'sm-profile'), "#sally_rest"%><br/>
+				  <span style="margin-left:10px">Sally S.</span><br/>
+			  </span><br/>
+		  	  <span class="food-desc">
+				  Rice bowl with tuna, scrambled eggs, terriyaki sauce and mayonnaise.<br/>
+				  Comes with shredded dry seaweed and green onions as topping.<br/>
+				  <span style="font-style: italic"> Mayonnaise maybe be removed upon request.</span>
+			  </span><br/><br/><br/><br/><br/>
+			  
+			  <input type="hidden" name="foodtwo" id="foodtwo" value=0>
+			  
+ 			 <div class="center-outer">
+ 			   <%= image_tag('minus.png', :class=>'sm-icon', :style=>"float: left", :onClick=>"minus(2)")%>
+ 			   <div id="quantity-two">0</div>
+ 			   <%= image_tag('plus.png', :class=>'sm-icon', :style=>"float: right", :onClick=>"plus(2)")%>
+ 		     </div>
+			 
+		    </div>
+	      </div>
+      </div>
+	<div class="col-md-4 col-sm-6 col-xs-12 contains">
+  	  <div class="sqr">
+	  	<div style="margin:1em">
+	  	  <%= image_tag('porkbelly.jpg', :class => 'pic-style')%><br/>
+		  <span class="food-name">Pork Belly Rice Bowl</span><span class="food-price">$8</span><br />
+		  <span class="sm-profile-name">
+		  	<%= link_to image_tag('joanne.png', :class => 'sm-profile'), "#joanne_rest"%><br/>
+			  <span style="margin-left:10px">Joanne P.</span><br/>
+		  </span><br/>
+	  	  <span class="food-desc">
+			  Rice Bowl (White rice) with soy sauce marinated Pork Belly and grilled onions. <br/>
+		  </span><br/><br/><br/>
+		  <input type="hidden" name="foodthree" id="foodthree" value=0>
+		  
+		 <div class="center-outer">
+		   <%= image_tag('minus.png', :class=>'sm-icon', :style=>"float: left", :onClick=>"minus(3)")%>
+		   <div id="quantity-three">0</div>
+		   <%= image_tag('plus.png', :class=>'sm-icon', :style=>"float: right", :onClick=>"plus(3)")%>
+	       </div>
+	   </div>
+      </div>
+      </div>
+	  
+  		  <input type="submit" name='save' value='Proceed to Checkout' class='btn btn-chef' id='menu-submit'>
+	  </form>
+  </div>
+</div>
+<div class="row">
+	<div id="sally_rest">
+	<%= image_tag('sally_1.png', :style => "width: 13%; float:left")%><br/>
+	<span class="rest-name">SALLY'S KITCHEN</span><br/>
+	<span style="font-style: italic; font-size:small"> “I am an adventurer always seeking to try new food and restaurants. With my great passion for cooking, I would like to present you with some of my favorite Korean dishes I had growing up in Korea. I am very happy and excited to share my love of cooking with you!”</span><br/>
+ 	</div>
+	<div class="col-md-12 menu-container">
+	<div class="col-md-4 col-sm-6 col-xs-12 contains">
+  	  <div class="sqr">
+	  	<div style="margin:1em">
+	  	  <%= image_tag('chicken_mayo.jpg', :class => 'pic-style')%><br/>
+		  <span class="food-name">Chicken Mayo</span><span class="food-price">$7</span><br />
+		  <span class="sm-profile-name">
+		  	<%= link_to image_tag('sally_1.png', :class => 'sm-profile'), "#sally_rest"%><br/>
+			  <span style="margin-left:10px">Sally S.</span><br/>
+		  </span><br/>
+	  	  <span class="food-desc">
+			  Rice bowl with fried chicken thigh, scrambled eggs, teriyaki sauce and mayonnaise. <br/>
+			  <span style="font-style: italic">Rice bowl comes with shredded dry seaweed and green onions as topping. Mayonnaise maybe be removed upon request.</span>
+		  </span><br/>
+		  
+	   </div>
+      </div>
+      </div>
+	<div class="col-md-4 col-sm-6 col-xs-12 contains">
+  	  <div class="sqr">
+	  	<div style="margin:1em">
+	  	  <%= image_tag('tuna_mayo.jpg', :class => 'pic-style')%><br/>
+		  <span class="food-name">Tuna Mayo</span><span class="food-price">$7</span><br />
+		  <span class="sm-profile-name">
+		  	<%= link_to image_tag('sally_1.png', :class => 'sm-profile'), "#sally_rest"%><br/>
+			  <span style="margin-left:10px">Sally S.</span><br/>
+		  </span><br/>
+	  	  <span class="food-desc">
+			  Rice bowl with tuna, scrambled eggs , terriyaki sauce and mayonnaise.<br/>
+			  <span style="font-style: italic">Rice bowl comes with shredded dry seaweed and green onions as topping. Mayonnaise maybe be remoed upon request.</span>
+		  </span><br/>
+		  
+	    </div>
+      </div>
+    </div>
+</div>
+</div>  
+<!-- end of row -->
+<div class="row">
+	<div id="joanne_rest">
+	<%= image_tag('joanne.png', :style => "width: 13%; float:left")%><br/>
+	<span class="rest-name">JOANNE'S KITCHEN</span><br/>
+	<span style="font-style: italic; font-size:small"> “I was born in a small city of Korea and came to the States 8 years ago. Since I came here, I really missed my home meal, so I started cooking for myself. Now, it became one of my passion and I would like to share some of my favorite Korean dish with you guys. Hope you all enjoy it!”</span><br/>
+ 	</div>
+	<div class="col-md-12 menu-container">
+	<div class="col-md-4 col-sm-6 col-xs-12 contains">
+  	  <div class="sqr">
+	  	<div style="margin:1em">
+	  	  <%= image_tag('porkbelly.jpg', :class => 'pic-style')%><br/>
+		  <span class="food-name">Pork Belly Rice Bowl</span><span class="food-price">$8</span><br />
+		  <span class="sm-profile-name">
+		  	<%= link_to image_tag('joanne.png', :class => 'sm-profile'), "#joanne_rest"%><br/>
+			  <span style="margin-left:10px">Joanne P.</span><br/>
+		  </span><br/>
+	  	  <span class="food-desc">
+			  Rice Bowl with soy sauce marinated pork belly, grilled onions, and egg. <br/>
+			  <span style="font-style: italic">Egg can be removed upon request.</span>
+		  </span><br/>
+	   </div>
+      </div>
+      </div>
+  
+  
+</div>
+</div> 
+<!--end of row// joanne's kitchen -->
+
+
+<div>
+	<div class="content-title">Previous meals</div>
+	<div class="row">
+	<div class="col-md-12 menu-container">
+		
+  
+  <div class="col-md-4 col-sm-6 col-xs-12">
+  	<div class="sqr"><div style="margin:1em">
+		<%= image_tag('chicken.png', :class => 'pic-style')%><br/>
+	  <span class="food-name">Dak Gang Jeong</span><span class="food-price">$7</span><br />
+	  <span class="food-desc">A Korean sweet and spicy deep-fried chicken with rice cake</span><br/>
+  </div>
+  	</div>
+  </div>
+  <div class="col-md-4 col-sm-6 col-xs-12 contains">
+  	<div class="sqr"><div style="margin:1em">
+		<%= image_tag('beef.jpg', :class => 'pic-style')%><br/>
+		
+	  <span class="food-name">Bulgogi</span><span class="food-price">$9</span><br/><br/>
+	  <span class="food-desc">Grilled marinated beef, served with rice.</span><br/><br/>
+ 	 </div>
+  	</div>
+  </div>
+  
+  <div class="col-md-4 col-sm-6 col-xs-12">
+  	<div class="sqr"><div style="margin:1em">
+		<%= image_tag('jap.jpg', :class => 'pic-style')%><br/>
+	  <span class="food-name">Japchae</span><span class="food-price">$8</span><br />
+	  <span class="food-desc">Sweet potato starch noodles stir fried with vegetables.</span><br/><br/>
+  </div>
+  	</div>
+  </div>
+  <div class="col-md-4 col-sm-6 col-xs-12">
+  	<div class="sqr">
+      <div style="margin:1em">
+		<%= image_tag('pork.jpg', :class => 'pic-style')%><br/>
+	    <span class="food-name">Jae Yuk Bo Kum</span><span class="food-price">$9</span><br />
+	    <span class="food-desc">Spicy pork with kimchi stir fry, served with rice.</span><br/>
+	  </div>
+  	</div>
+  </div>
+</div>
+</div>
+
+</form>
+</div>
+			  <script type="text/javascript">
+			  $(document).ready(function() {
+		  			resetParams();
+				});
+			  </script>
+

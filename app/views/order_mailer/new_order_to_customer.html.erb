@@ -1,0 +1,16 @@
+
+Hello, <%= @order.name %><br/ >
+Thank you for placing your order with <a href="www.tastehome.co" style="color: #F2724C">TasteHome</a>!<br/ >
+<br/ >
+Order Summary<br/ >
+<%= @order.summary %> <br/ >
+Total $ <%= @order.amount %><br/ >
+
+Your meal will be delivered between <%=@order.time%> on Wednesday 17th. <br/ >
+TasteHome is excited to serve you our authentic Korean meals on Wednesday! <br/ >
+Please reach us at contact@buildub.com if you have any questions.<br/ >
+
+Please LIKE & FOLLOW our pages.<br />
+<%= link_to "Facebook", "https://www.facebook.com/pages/TasteHome/830473117007533" %><br/>
+<%= link_to "Twitter", "https://twitter.com/hellotastehome" %><br/>
+<%= link_to "Instagram", "https://instagram.com/hellotastehome" %>

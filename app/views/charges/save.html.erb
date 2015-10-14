@@ -1,0 +1,104 @@
+<script type="text/javascript">
+$(document).ready(function() {
+	enableAction();
+});
+
+var enabled;
+function discount() {
+	if (document.getElementById("coupon").value == "KGROUP" && enabled) {
+		document.getElementById("itemnum").innerHTML = (parseFloat(document.getElementsByName("amount")[0].value)/100.00 * 0.85).toFixed(2);
+		document.getElementById("total").innerHTML = (parseFloat(document.getElementsByName("amount")[0].value)/100.00 * 0.85 + 2.50).toFixed(2);
+		document.getElementsByName("amount")[0].value = (document.getElementById("total").innerHTML)*100;
+		enabled = false;
+	}
+}
+
+function enableAction() {
+	enabled = true;
+}
+</script>
+
+<div class="order">Pay Here</div><br>
+ 
+  <form action="create" method="POST" id="payment-form">
+    <span class="payment-errors"></span>
+	<div id="order-form">
+		<span style="text-align:center" class="payment">
+			Item(<%=@totalnum%>): <span id="itemnum">$<%=@totalprice/100.00 - 2.5%></span><br/></span>
+		<span style="text-align:center" class="payment">Delivery: $2.50<br/></span>		
+		<span style="text-align:center" class="payment"> Your total is: <span style="color: #F2724C"><span id="total">$<%= @totalprice/100.00 %></span></span></span>
+	<div class="form-group payment">
+		<label for="name" class="form-name">Name:</label>
+	    <input type="text" class="form-control" name="name" style="width: 50%" required> 
+	</div>
+	
+	<div class="form-group payment">      
+		<label for="addr" class="form-name">Address:</label>
+        <input type="text" name="address" class="form-control" style="width: 50%" placeholder="Delivery available in Berkeley" required>
+    </div>
+	
+   <div class="form-group payment">
+      <label for="timeslot" class="form-name">Delivery Timeslot: </label><br />
+	  <select name="time">
+	    <option value="6:30-7:00pm">Fri 6:30-7:00pm</option>
+	    <option value="7:00-7:30pm">Fri 7:00-7:30pm</option>
+		<option value="7:30-8:00pm">Fri 7:30-8:00pm</option>
+		<option value="8:00-8:30pm">Fri 8:00-8:30pm</option>
+	  </select>
+    </div>
+	
+    <div class="form-group payment">
+      <label for="email" class="form-name">Email:</label>
+        <input type="email" name="email" class="form-control" style="width: 50%" required>
+    </div>
+	
+    <div class="form-group payment">
+      <label for="phone" class="form-name">Phone Number:</label>
+        <input type="text" name="phone" class="form-control" style="width: 50%" required>
+      </label>
+     </div>
+	
+    <div class="form-group payment">
+      <label for="email" class="form-name">Special Instructions:</label>
+        <input type="text" name="specialinst" class="form-control" style="width: 80%" placeholder="Optional">
+     </div>
+	 
+  	<% if @totalnum > 3 %>
+		<label for="coupon" class="form-name">Coupon:</label>
+		<input type="text" id="coupon" name="coupon" class="form-control" style="width: 30%">
+		 <%= link_to 'Apply','#', :onclick => "discount()", :id => 'applyBtn' %>
+    	</label>
+     <% end %>
+	 
+	 <div class="underline-lg"></div><br>
+	 <p class="help-block payment">Please enter the valid card information. Payment securely processed by <a href="www.stripe.com">Stripe</a></p>
+    <div class="form-group payment">
+      <label for="cardnum" class="form-name">Card Number:</label>
+        <input type="text" data-stripe="number" class="form-control" style="width: 50%" required>
+      </label>
+    </div>
+ 
+    <div class="form-group payment">
+      <label for="cvc" class="form-name">CVC:</label>
+        <input type="text" data-stripe="cvc" class="form-control" style="width: 10%" required>
+      </label>
+    </div>
+ 
+    <div class="form-group payment" style="width: 30%">
+      <label for="exp" class="form-name">Expiration (MM/YYYY):</label><input type="text" style="width:50px; padding: 6px 12px; border-radius: 4px; border: 1px solid #ccc" data-stripe="exp-month" required> <span> / </span>
+      <input type="text" style="width:70px; padding: 6px 12px; border-radius: 4px; border: 1px solid #ccc" data-stripe="exp-year" required>
+    </div>
+	
+	
+	<div class="form-group payment">
+		<input type="hidden" name="amount" value= <%=@totalprice%> >
+	</div>
+	
+	<div class="form-group payment">
+		<input type="hidden" name="summary" value= <%=@foodsummary%> >
+	</div>
+    <button type="submit" class="btn btn-chef checkout">Submit Payment</button>
+  </form>
+</div>
+
+<% console %>
